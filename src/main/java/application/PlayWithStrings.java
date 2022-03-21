@@ -3,6 +3,7 @@ package application;
 public class PlayWithStrings {
 	public static void main(String[] args) {
 		System.out.println("Hello String World");
+		printIntitials("Oliver", "Straberger");
 	}
 
 	/**
@@ -14,7 +15,7 @@ public class PlayWithStrings {
 	 * @param lastname
 	 */
 	public static void printIntitials(String firstname, String lastname) {
-
+		System.out.println(firstname.charAt(0) + " " + lastname.charAt(0));
 	}
 
 	/**
