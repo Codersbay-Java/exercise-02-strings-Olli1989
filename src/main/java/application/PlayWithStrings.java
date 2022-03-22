@@ -1,9 +1,22 @@
 package application;
 
+import java.util.Arrays;
+
 public class PlayWithStrings {
 	public static void main(String[] args) {
 		System.out.println("Hello String World");
 		printIntitials("Oliver", "Straberger");
+		if (areAnagrams("hel .?lo", "olhel")) {
+			System.out.println("Strings are anagram");
+		} else {
+			System.out.println("Strings are not anagram");
+		}
+
+		if (isPalindrome("Helloolleh")) {
+			System.out.println("True");
+		} else {
+			System.out.println("false");
+		}
 	}
 
 	/**
@@ -32,6 +45,16 @@ public class PlayWithStrings {
 	 * @return true if the values are anagrams, false otherwise.
 	 */
 	public static boolean areAnagrams(String value1, String value2) {
+
+		char myValue1[] = value1.replaceAll("[^a-zA-Z]", "").toCharArray();
+		char myValue2[] = value2.replaceAll("[^a-zA-Z]", "").toCharArray();
+
+		Arrays.sort(myValue1);
+		Arrays.sort(myValue2);
+
+		if (Arrays.equals(myValue1, myValue2)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -50,6 +73,17 @@ public class PlayWithStrings {
 	 * @return true if it is a palindrome, false otherwise.
 	 */
 	public static boolean isPalindrome(String value) {
+		String myValue1 = value.replaceAll("[^a-zA-Zäöü1-9]", "");
+
+		StringBuilder builder = new StringBuilder();
+		builder.append(myValue1);
+		builder.reverse();
+		String secondStr = builder.toString();
+
+		if (myValue1.equalsIgnoreCase(secondStr)) {
+			return true;
+		}
+
 		return false;
 	}
 }
